@@ -186,7 +186,7 @@ function renderPage() {
         $(".del", node).addEventListener("click", async () => {
             if (!confirm(`Kustutada ${u.name || "kasutaja"}?`)) return;
             try {
-                await fetch(`http://localhost:3000/api/users/${u._id}`, { method: "DELETE" });
+                await fetch(`http://mongodb.vsevolodtsarev23.thkit.ee/api/users/${u._id}`, { method: "DELETE" });
                 await reloadAfterChange();
             } catch(err) {
                 alert("Kustutamisel tekkis viga: " + err.message);
@@ -254,7 +254,7 @@ form.addEventListener("submit", async (e) => {
     submitBtn.disabled = true;
     try {
         if (idEl.value){
-            await fetch(`http://localhost:3000/api/users/${idEl.value}`, {
+            await fetch(`http://mongodb.vsevolodtsarev23.thkit.ee/api/users/${idEl.value}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -262,7 +262,7 @@ form.addEventListener("submit", async (e) => {
                 body: JSON.stringify(payload)
             });
         } else {
-            await fetch("http://localhost:3000/api/users", {
+            await fetch("http://mongodb.vsevolodtsarev23.thkit.ee/api/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -309,7 +309,7 @@ addDemoBtn.addEventListener("click", async () => {
         email: `kasutaja${rand}@mail.com`
     };
     try {
-        await fetch("http://localhost:3000/api/users", {
+        await fetch("http://mongodb.vsevolodtsarev23.thkit.ee/api/users", {
             method: "POST",
             body: JSON.stringify(demoUser)
         });
@@ -321,3 +321,4 @@ addDemoBtn.addEventListener("click", async () => {
 
 initControls();
 load().catch(err => alert(err.message));
+
