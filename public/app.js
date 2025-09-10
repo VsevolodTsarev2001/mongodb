@@ -211,7 +211,7 @@ async function reloadAfterChange() {
 
 async function load(){
     try {
-        const response = await fetch("http://localhost:3000/api/users");
+        const response = await fetch("http://mongodb.vsevolodtsarev23.thkit.ee/api/users");
         allUsers = await response.json(); // <-- преобразуем в массив
         filteredUsers = [];
         currentPage = 1;
