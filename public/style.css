@@ -1,0 +1,368 @@
+:root {
+    --bg: #fefefe;
+    --fg: #1e293b;
+    --muted: #64748b;
+    --accent: #6366f1;
+    --accent-light: #a5b4fc;
+    --danger: #ef4444;
+    --card-bg: #ffffff;
+    --shadow-light: 0 6px 20px rgba(99, 102, 241, 0.15);
+    --shadow-dark: 0 12px 36px rgba(30, 41, 59, 0.12);
+    --radius: 16px;
+    --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 48px auto;
+    padding: 0 24px;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.topbar h1 {
+    font-size: 2.25rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    user-select: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(99, 102, 241, 0.3);
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-light);
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    transition: box-shadow var(--transition), transform var(--transition);
+    will-change: transform;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-dark);
+    transform: translateY(-6px);
+}
+
+.form-card h2 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--fg);
+    letter-spacing: 0.03em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.grid-span-2 {
+    grid-column: span 2;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field span {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.field input {
+    border: 2px solid #e0e7ff;
+    background: #f9fafb;
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    font-size: 1rem;
+    color: var(--fg);
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline-offset: 3px;
+    outline: none;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.field input::placeholder {
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-light);
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border-radius: var(--radius);
+    padding: 14px 26px;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1rem;
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    border: 2px solid transparent;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    background-color: #f3f4ff;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+}
+
+.btn:hover {
+    background-color: var(--accent);
+    color: white;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+}
+
+.btn.primary:hover {
+    background: linear-gradient(90deg, var(--accent-light), var(--accent));
+    box-shadow: 0 10px 32px rgba(99, 102, 241, 0.5);
+}
+
+.btn.ghost {
+    background: transparent;
+    border: 2px solid var(--muted);
+    color: var(--muted);
+    box-shadow: none;
+}
+
+.btn.ghost:hover {
+    background-color: var(--muted);
+    color: var(--card-bg);
+    box-shadow: 0 4px 16px rgba(100, 116, 139, 0.3);
+}
+
+.btn.danger {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: white;
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.btn.danger:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+    box-shadow: 0 10px 32px rgba(220, 38, 38, 0.5);
+}
+
+.list-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.search {
+    flex-grow: 1;
+    max-width: 360px;
+    border: 2px solid #e0e7ff;
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    font-size: 1rem;
+    color: var(--fg);
+    font-weight: 600;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+}
+
+.search::placeholder {
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.search:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px var(--accent-light);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка пользователя */
+.user-card {
+    display: grid;
+    grid-template-columns: 56px 1fr 96px;
+    align-items: center;
+    padding: 16px 24px;
+    border-radius: var(--radius);
+    border: 1.5px solid #e0e7ff;
+    background: var(--card-bg);
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.06);
+    transition: box-shadow var(--transition), transform var(--transition);
+    cursor: default;
+    gap: 12px;
+}
+
+.user-card:hover {
+    box-shadow: 0 12px 28px rgba(99, 102, 241, 0.3);
+    transform: translateY(-4px);
+}
+
+/* Аватар */
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: white;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
+
+/* Информация */
+.info .name {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--fg);
+}
+
+.info .meta {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* Контейнер кнопок */
+.btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Кнопки внутри карточки */
+.btns .btn {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 12px;
+    font-weight: 600;
+    min-width: 80px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.btns .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+
+.btns .edit {
+    background-color: var(--accent-light);
+    border: 2px solid var(--accent-light);
+    color: white;
+}
+
+.btns .edit:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    color: white;
+}
+
+.btns .del {
+    background-color: var(--danger);
+    border: 2px solid var(--danger);
+    color: white;
+}
+
+.btns .del:hover {
+    background-color: #dc2626;
+    border-color: #dc2626;
+    box-shadow: 0 10px 32px rgba(220, 38, 38, 0.5);
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 520px) {
+    .user-card {
+        grid-template-columns: 56px 1fr;
+        grid-template-rows: auto auto;
+        padding: 16px 20px;
+        gap: 10px;
+    }
+    .btns {
+        flex-direction: row;
+        grid-column: 1 / -1;
+        justify-content: flex-end;
+    }
+    .btns .btn {
+        min-width: 60px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}

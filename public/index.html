@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="et">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kasutajad</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrapper">
+    <header class="topbar">
+        <h1>Kasutajate haldus</h1>
+        <button id="addDemo" class="btn ghost">+ demo</button>
+    </header>
+
+    <section class="card form-card">
+        <h2>Lisa / muuda</h2>
+        <form id="userForm">
+            <input type="hidden" id="userId" />
+            <div class="grid">
+                <label class="field">
+                    <span>Nimi</span>
+                    <input id="name" placeholder="Bogdan" required />
+                </label>
+                <label class="field">
+                    <span>Vanus</span>
+                    <input id="age" placeholder="8" type="number" min="0" />
+                </label>
+                <label class="field grid-span-2">
+                    <span>E-post</span>
+                    <input id="email" placeholder="nimi@gmail.com" type="email" />
+                </label>
+            </div>
+            <div class="actions">
+                <button class="btn primary" type="submit">Salvesta</button>
+                <button class="btn" type="button" id="resetBtn">Lähtesta</button>
+            </div>
+        </form>
+    </section>
+
+
+
+    <section class="card">
+        <div class="list-head">
+            <h2>Kasutajate nimekiri</h2>
+            <input id="search" class="search" placeholder="Otsi nime/e-posti järgi..." />
+        </div>
+        <div id="users" class="cards"></div>
+    </section>
+</div>
+
+<template id="userCardTpl">
+    <div class="user-card glass">
+        <div class="avatar"></div>
+        <div class="info">
+            <div class="name"></div>
+            <div class="meta"></div>
+        </div>
+        <div class="btns">
+            <button class="btn ghost edit">Muuda</button>
+            <button class="btn danger del">Kustuta</button>
+        </div>
+    </div>
+</template>
+
+<script src="/app.js"></script>
+</body>
+</html>
