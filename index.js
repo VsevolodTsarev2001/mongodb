@@ -62,9 +62,10 @@ let users;
             res.json({ ok: true });
         });
 
-        app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+        app.listen(PORT, () => console.log(`Server running at mongodb.vsevolodtsarev23.thkit.ee`));
     } catch (e) {
         console.error(e);
         process.exit(1);
     }
 })();
+
